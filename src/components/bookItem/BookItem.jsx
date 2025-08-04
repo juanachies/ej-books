@@ -1,5 +1,6 @@
 
 import { Badge, Card, Button } from "react-bootstrap";
+import { useState } from "react";
 const BookItem = ({
   title,
   author,
@@ -8,6 +9,13 @@ const BookItem = ({
   imageUrl,
   available,
 }) => {
+  let titleUpdate = title;
+  const [newTitle, setNewTitle] = useState(title)
+  const clickHandler = () => {
+    setNewTitle("Actualizado")
+    console.log("clicked")
+  }
+  console.log('BookItem evaluado por React');
   return (
     <Card style={{ width: "22rem" }} className="mx-3">
       <Card.Img
@@ -23,13 +31,13 @@ const BookItem = ({
             <Badge bg="danger">Reservado</Badge>
           )}
         </div>
-        <Card.Title>{title}</Card.Title>
+        <Card.Title>{newTitle}</Card.Title>
         <Card.Subtitle>{author}</Card.Subtitle>
         <div>
           {rating} estrella {rating > 1 ? "s" : ""}
         </div>
         <p>{pageCount} paginas</p>
-        <Button>Actualizar titulo</Button>
+        <Button onClick={clickHandler}>Actualizar titulo</Button>
       </Card.Body>
     </Card>
   );

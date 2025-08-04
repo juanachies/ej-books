@@ -1,7 +1,7 @@
 
 import BookItem from "./components/bookItem/BookItem"
 import Books from "./components/books/Books";
-
+import NewBook from "./components/newBook/NewBook";
 const App = () => {
   const books = [
     {
@@ -50,6 +50,7 @@ const App = () => {
         <h2>Book champions app</h2>
         <p>¡Quiero leer libros!</p>
         <Books books={books} />
+        <NewBook />
 
         </div>
      
