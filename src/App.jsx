@@ -1,5 +1,4 @@
-
-import BookItem from "./components/bookItem/BookItem"
+import BookItem from "./components/bookItem/BookItem";
 import Books from "./components/books/Books";
 import NewBook from "./components/newBook/NewBook";
 const App = () => {
@@ -42,22 +41,16 @@ const App = () => {
     },
   ];
 
-  
-
   return (
     <>
-      <div>
+      <div className="d-flex flex-column align-items-center">
         <h2>Book champions app</h2>
         <p>¡Quiero leer libros!</p>
-        <Books books={books} />
         <NewBook />
-
-        </div>
-     
+        <Books books={books} />
+      </div>
     </>
-  )
-}
+  );
+};
 
-export default App
-
-
+export default App;

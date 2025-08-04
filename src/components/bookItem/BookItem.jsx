@@ -1,4 +1,3 @@
-
 import { Badge, Card, Button } from "react-bootstrap";
 import { useState } from "react";
 const BookItem = ({
@@ -9,13 +8,12 @@ const BookItem = ({
   imageUrl,
   available,
 }) => {
-  let titleUpdate = title;
-  const [newTitle, setNewTitle] = useState(title)
+  const [newTitle, setNewTitle] = useState(title);
   const clickHandler = () => {
-    setNewTitle("Actualizado")
-    console.log("clicked")
-  }
-  console.log('BookItem evaluado por React');
+    setNewTitle("Actualizado");
+    console.log("clicked");
+  };
+  console.log("BookItem evaluado por React");
   return (
     <Card style={{ width: "22rem" }} className="mx-3">
       <Card.Img
@@ -43,8 +41,4 @@ const BookItem = ({
   );
 };
 
-
 export default BookItem;
-
-
-
