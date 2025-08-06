@@ -1,9 +1,11 @@
 import BookItem from "./components/bookItem/BookItem";
 import Books from "./components/books/Books";
 import NewBook from "./components/newBook/NewBook";
+import { useState } from "react";
 const App = () => {
   const books = [
     {
+      id: 1,
       title: "Harry Potter 1",
       author: "J.K. Rowling",
       rating: 4,
@@ -13,6 +15,7 @@ const App = () => {
       available: true,
     },
     {
+      id: 2,
       title: "El Señor de los Anillos",
       author: "J.R.R. Tolkien",
       rating: 5,
@@ -22,6 +25,7 @@ const App = () => {
       available: true,
     },
     {
+      id: 3,
       title: "Dune",
       author: "Frank Herbert",
       rating: 3,
@@ -31,6 +35,7 @@ const App = () => {
       available: true,
     },
     {
+      id: 4,
       title: "1984",
       author: "George Orwell",
       rating: 4,
@@ -40,14 +45,24 @@ const App = () => {
       available: true,
     },
   ];
+  const handleBookAdded = (book) => {
+    const bookData = {
+      ...book,
+      id: Math.random(),
+    };
+    console.log(bookData);
 
+    setBookList((prevBookList) => [bookData, ...prevBookList]); //callback, es una funcion que se pasa como parametro a otra funcion
+  };
+
+  const [bookList, setBookList] = useState(books);
   return (
     <>
       <div className="d-flex flex-column align-items-center">
         <h2>Book champions app</h2>
         <p>¡Quiero leer libros!</p>
-        <NewBook />
-        <Books books={books} />
+        <NewBook onBookAdded={handleBookAdded} />
+        <Books books={bookList} />
       </div>
     </>
   );
