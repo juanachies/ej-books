@@ -46,6 +46,7 @@ const App = () => {
       available: true,
     },
   ];
+
   const handleBookAdded = (book) => {
     const bookData = {
       ...book,
@@ -57,8 +58,16 @@ const App = () => {
   };
 
   const [bookList, setBookList] = useState(books);
+
+  const handleBookDeleted = (bookID) =>{
+    setBookList((prevBookList) => 
+      prevBookList.filter((book) => )
+    )
+  }
+
   return (
     <>
+    
       {/* <div className="d-flex flex-column align-items-center">
         <h2>Book champions app</h2>
         <p>¡Quiero leer libros!</p>

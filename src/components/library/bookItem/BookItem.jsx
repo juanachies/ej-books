@@ -31,13 +31,22 @@ const BookItem = ({
             <Badge bg="danger">Reservado</Badge>
           )}
         </div>
-        <Card.Title>{newTitle}</Card.Title>
-        <Card.Subtitle>{author}</Card.Subtitle>
+          <Card.Title>{newTitle}</Card.Title>
+          <Card.Subtitle>{author}</Card.Subtitle>
         <div>
-          {rating} estrella {rating > 1 ? "s" : ""}
+          {Array.from({length:5}, (_, index) => 
+            index > rating ? (
+              <StarFill key={index} className='text-warning' />
+            ) : (
+              <Star key={index} className='text-warning' />
+            )
+          )}
         </div>
         <p>{pageCount} paginas</p>
         <Button onClick={clickHandler}>Seleccionar libro</Button>
+        <Button style={{marginLeft: '10px'}} variant="danger"> 
+          
+        </Button>
       </Card.Body>
     </Card>
   );
